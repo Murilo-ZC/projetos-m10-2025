@@ -1,10 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView} from 'react-native';
 import { MainScreen } from './app/MainScreen';
+import { HeaderApp } from './components/HeaderApp';
 
 export default function App() {
   return (
-    <MainScreen></MainScreen>
+    <SafeAreaView style={{flex:1}}>
+      <HeaderApp></HeaderApp>
+      <MainScreen></MainScreen>
+    </SafeAreaView>
   );
 }
 
