@@ -1,6 +1,7 @@
-import { StyleSheet, Text, View, ScrollView, SafeAreaView, FlatList } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, SafeAreaView, FlatList, TouchableOpacity } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import Card from '../components/Card';
+import { router, useLocalSearchParams } from 'expo-router';
 
 const imagens = {
     0: "https://images.pexels.com/photos/32056657/pexels-photo-32056657/free-photo-of-black-and-white-close-up-of-a-farm-cow.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -15,9 +16,15 @@ const imagens = {
 }
 
 export default function Lista() {
+    // Pega os valores enviados
+    const {nome, cavaleiro} = useLocalSearchParams(); 
     return (
         <SafeAreaProvider>
             <SafeAreaView style={styles.container}>
+                <Text>Bem vindo {nome}! Seu cavaleiro é {cavaleiro}</Text>
+                <TouchableOpacity style={styles.botao} onPress={()=>{router.back()}}>
+                    <Text style={styles.textoBotao}>Voltar</Text>
+                </TouchableOpacity>
                 <FlatList
                     data={Array.from({ length: 100 }).map((_, i) =>
                         imagens[i % Object.keys(imagens).length]
@@ -44,5 +51,19 @@ const styles = StyleSheet.create({
         fontSize: 42,
         color: '#c4c4c4',
         padding: 16,
-    }
+    },
+    botao: {
+        width: "80%",
+        padding: 8,
+        margin: 10,
+        borderWidth: StyleSheet.hairlineWidth,
+        borderColor: '#f0f0f0',
+        backgroundColor: '#797979',
+        borderRadius: 20,
+    },
+    textoBotao: {
+        fontSize: 24,
+        color: '#c4c4c4',
+        padding: 16,
+    },
 });

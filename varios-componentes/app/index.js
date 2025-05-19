@@ -2,11 +2,9 @@ import { StyleSheet, Text, View, SafeAreaView, TextInput, Pressable, TouchableOp
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import React from 'react';
 import { Picker } from '@react-native-picker/picker';
-import { useRouter } from 'expo-router';
+import { router } from 'expo-router';
 
 function chamarSegundaTela(texto, valorSelecionado){
-    // Pega o router
-    const router = useRouter();
     if (texto.trim() === '') {
       Alert.alert('Campo obrigatório', 'Por favor, preencha o campo.');
     } else {
