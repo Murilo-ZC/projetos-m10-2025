@@ -14,6 +14,10 @@ function chamarUber(){
   return router.navigate('uber://riderequest')
 }
 
+function vaiParaTabs(){
+  return router.navigate('/logica/home')
+}
+
 export default function App() {
   return (
     <View style={styles.container}>
@@ -23,7 +27,7 @@ export default function App() {
       <Botao title="Vai para Segunda Tela" onPress={vaiParaSegundaTela}/>
       <Botao title="Vai para o site do UOL" onPress={vaiParaUol}/>
       <Botao title="Chama o Uber" onPress={chamarUber}/>
-      <Botao title="Vai para tela com abas"/>
+      <Botao title="Vai para tela com abas" onPress={vaiParaTabs}/>
 
     </View>
   );
