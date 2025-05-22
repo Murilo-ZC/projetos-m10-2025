@@ -19,6 +19,7 @@ export default function LayoutBase() {
                     header: (props) => <CustomHeader {...props} />,
                 }}>
                     <Stack.Screen name="index" options={{title:"Bem Vindo"}}/>
+                    <Stack.Screen name="info" options={{title: "História do Lamen"}} />
                 </Stack>
             </SafeAreaView>
         </SafeAreaProvider>
