@@ -1,6 +1,6 @@
 import {Text,SafeAreaView,View} from 'react-native';
 
-export function MainScreen(){
+export default function TelaPrincipal(){
     return (
         <View>
             <Text>Ola Mundo Diferente!</Text>
