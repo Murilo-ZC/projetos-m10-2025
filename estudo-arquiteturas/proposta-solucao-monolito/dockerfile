@@ -1,0 +1,25 @@
+# Dockerfile para o monolito Flask
+
+FROM python:3.11-slim
+
+# Define o diretório de trabalho
+WORKDIR /app
+
+# Copia os arquivos da aplicação
+COPY . .
+
+
+# Instala as dependências
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Cria o banco de dados
+RUN python3 cria_banco.py
+
+# Expõe a porta padrão do Flask
+EXPOSE 5000
+
+# Define a variável de ambiente para o Flask
+ENV FLASK_APP=app.py
+
+# Comando para iniciar o servidor Flask
+CMD ["flask", "run", "--host=0.0.0.0", "--port=5000"]
