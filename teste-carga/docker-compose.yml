@@ -1,0 +1,21 @@
+services:
+  app:
+    build:
+      context: ./api
+      dockerfile: ./Dockerfile
+    container_name: app
+    restart: always
+    environment:
+      - FLASK_ENV=development
+
+
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: ./Dockerfile
+    container_name: nginx
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - app 
