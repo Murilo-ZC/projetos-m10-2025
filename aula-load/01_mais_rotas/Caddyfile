@@ -1,0 +1,4 @@
+http://localhost:2015 {
+    respond /      "olá mundo!"
+    respond /bye   "tchau!"
+}
